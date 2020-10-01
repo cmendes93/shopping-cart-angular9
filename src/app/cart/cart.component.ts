@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
+
 import { CartService } from '../cart.service';
 
 @Component({
@@ -30,5 +31,11 @@ export class CartComponent {
 
     this.items = this.cartService.clearCart();
     this.checkoutForm.reset();
+  }
+
+  removeFromCart(idItem,itemName){
+    this.items.splice(idItem,1);
+    window.alert(`${itemName} has been successfully removed!`);
+    
   }
 }
